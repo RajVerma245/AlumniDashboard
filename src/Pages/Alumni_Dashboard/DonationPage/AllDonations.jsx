@@ -130,7 +130,7 @@ export default function AllDonations() {
                 sx={{
                   p: 2,
                   borderRadius: 3,
-                  maxWidth:{xs: 250, sm: 300, md: 360},
+                  // maxWidth:{xs: 250, sm: 300, md: 360},
                   height: "100%",
                   "&:hover": { boxShadow: 6, transform: "translateY(-3px)" },
                   transition: "all 0.3s",

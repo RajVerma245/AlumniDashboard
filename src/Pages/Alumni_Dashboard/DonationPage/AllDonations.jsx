@@ -122,15 +122,15 @@ export default function AllDonations() {
             Top Donors
           </Typography>
 
-        <Grid container spacing={3} justifyContent={"center"}>
+        <Grid container spacing={3} display={"flex"} justifyContent={"center"} >
           {donors.map((donor, index) => (
-            <Grid size={{xs:12,sm:6,md:4}} key={index}>
+            <Grid size={{xs:12,sm:6,md:4}} display={"flex"} justifyContent={"center"}  key={index}>
               <Card
                 elevation={3}
                 sx={{
                   p: 2,
                   borderRadius: 3,
-                  maxWidth: 360,
+                  maxWidth: { xs: 360, sm: 400, md: 440 },
                   height: "100%",
                   "&:hover": { boxShadow: 6, transform: "translateY(-3px)" },
                   transition: "all 0.3s",
@@ -194,23 +194,23 @@ export default function AllDonations() {
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={2}
-          justifyContent="space-between"
-          alignItems={{ xs: "stretch", sm: "center" }}
-          overflowX="hidden"
+          justifyContent="space-between"          
           mb={2}
         >
           <TextField
             placeholder="Search by donor name"
             size="small"
             variant="outlined"
-            InputProps={{
+            slotProps={{
+             input: {
               startAdornment: (
                 <InputAdornment position="start">
                   <SearchIcon />
                 </InputAdornment>
               ),
             }}
-            sx={{ width: { xs: "100%", sm: 450 } }}
+          }
+            sx={{ width: { xs:250, sm: 450 } }}
           />
           <Button
             startIcon={<FilterListIcon />}
@@ -226,12 +226,13 @@ export default function AllDonations() {
           component={Paper}
           sx={{
             mb: 6,
+            // border: "10px solid red",
             boxShadow: 3,
             borderRadius: 2,
-            overflowX: "auto",         // key: allow side scroll
+            overflowX: "auto",         
           }}
         >
-          <Table sx={{ minWidth: 800, borderCollapse: "collapse" }}>
+          <Table sx={{ minWidth:{xs:300, lg:800} , borderCollapse: "collapse" }}>
             <TableHead>
               <TableRow sx={{ bgcolor: "#00838f" }}>
                 {["Name", "Year", "Department", "Purpose of Donation", "Amount Donated"].map(
@@ -242,7 +243,6 @@ export default function AllDonations() {
                         color: "white",
                         fontWeight: "bold",
                         border: "1px solid #508989ff",
-                        whiteSpace: "nowrap", // keep each column from wrapping
                       }}
                     >
                       {header}

@@ -28,6 +28,8 @@ export default function YourDonations() {
   const primary = "#1976d2";
   const accent = "#f57c00";
 
+  
+
   return (
      <Box sx={{ px: 3, py: 4, maxWidth: 1000, mx: "auto" }}>
 
@@ -87,8 +89,9 @@ export default function YourDonations() {
             textTransform: "none",
             fontWeight: 600,
             boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
-            ":hover": { backgroundColor: "#ef6c00", boxShadow: "0px 6px 14px rgba(0,0,0,0.3)" }
+            ":hover": { backgroundColor: "#ef6c00", boxShadow: "0px 6px 14px rgba(0,0,0,0.3)" }            
           }}
+          onClick={() => navigate("/donationform")}
         >
           Donate Now
         </Button>

@@ -8,6 +8,7 @@ import {
   Typography,
   Stack,
   Divider,
+  Container,
   TextField,
   Table,
   TableBody,
@@ -130,7 +131,7 @@ export default function AllDonations() {
                 sx={{
                   p: 2,
                   borderRadius: 3,
-                  maxWidth: { xs: 360, sm: 400, md: 440 },
+                  maxWidth: { xs: "100%", sm: 400, md: 440 },
                   height: "100%",
                   "&:hover": { boxShadow: 6, transform: "translateY(-3px)" },
                   transition: "all 0.3s",
@@ -179,7 +180,7 @@ export default function AllDonations() {
       </Box>
 
       {/* -------- Alumni Table -------- */}
-      <Box mt={6}>
+      <Container maxWidth="lg" sx={{ my: 5}}>
         <Typography
           variant="h4"
           fontWeight="bold"
@@ -192,7 +193,7 @@ export default function AllDonations() {
 
         {/* Search & Filter */}
         <Stack
-          direction={{ xs: "column", sm: "row" }}
+          direction="row"
           spacing={2}
           justifyContent="space-between"          
           mb={2}
@@ -210,7 +211,7 @@ export default function AllDonations() {
               ),
             }}
           }
-            sx={{ width: { xs:250, sm: 450 } }}
+            sx={{ width: { xs:250, md:"60%" } }}
           />
           <Button
             startIcon={<FilterListIcon />}
@@ -221,7 +222,6 @@ export default function AllDonations() {
           </Button>
         </Stack>
 
-        {/* Table with horizontal scroll */}
         <TableContainer
           component={Paper}
           sx={{
@@ -229,7 +229,15 @@ export default function AllDonations() {
             // border: "10px solid red",
             boxShadow: 3,
             borderRadius: 2,
-            overflowX: "auto",         
+            overflowX: "auto", 
+          
+           maxWidth: "300px",  
+          "@media (min-width:300px) and (max-width:599px)": {
+            maxWidth: "600px",  
+          },
+          "@media (min-width:600px)": {
+            maxWidth: "100%", 
+          },
           }}
         >
           <Table sx={{ minWidth:{xs:300, lg:800} , borderCollapse: "collapse" }}>
@@ -264,7 +272,7 @@ export default function AllDonations() {
             </TableBody>
           </Table>
         </TableContainer>
-      </Box>
+      </Container>
 
     </Box>
   );
